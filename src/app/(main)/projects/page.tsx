@@ -8,7 +8,7 @@ import React from "react";
 
 const ProjectsPage = () => {
   return (
-    <div className="container relative">
+    <div className="relative">
       <GradentBackbgound />
       <H2>Projects</H2>
       <ul className="flex flex-col space-y-3">
