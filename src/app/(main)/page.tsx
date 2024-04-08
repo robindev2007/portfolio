@@ -9,7 +9,7 @@ import Skills from "./components/skills/Skills";
 
 export default function Home() {
   return (
-    <div className="container relative">
+    <div className="relative">
       <GradentBackbgound />
       <HeroSection />
       <Projects />
