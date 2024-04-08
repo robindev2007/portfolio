@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const HeroSection = () => {
   return (
-    <div className="container flex flex-col-reverse items-center md:flex-row md:justify-between md:space-y-0">
+    <div className="flex flex-col-reverse items-center md:flex-row md:justify-between md:space-y-0">
       <div className="mt-8 flex flex-col justify-center space-y-4 md:mt-0 md:w-2/3">
         <h1 className="text-5xl font-bold will-change-transform">Robin Mia</h1>
         <h2 className="text-lg font-medium text-muted-foreground will-change-transform">

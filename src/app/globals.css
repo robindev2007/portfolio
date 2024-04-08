@@ -4,6 +4,7 @@
 
 @layer base {
   :root {
+    color-scheme: dark;
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
     --card: 240 10% 3.9%;
@@ -35,16 +36,94 @@
   body {
     @apply bg-background text-foreground;
   }
+  span {
+    @apply font-medium text-muted-foreground;
+  }
 }
 
-image {
-  @apply h-fit w-full object-cover;
-}
+/* image {
+  @apply flex h-full w-fit object-cover;
+} */
 
 .underline-gradent::after {
   content: "";
 }
 
 .underline-gradent::after {
-  @apply absolute left-0 top-full flex h-[2px] rounded-full bg-gradient-to-l from-red-600 to-blue-600 transition-all duration-200 ease-in-out;
+  @apply absolute bottom-1 left-0 flex h-[2px] rounded-full bg-gradient-to-l from-red-600 to-blue-600 transition-all duration-200 ease-in-out;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 3px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #4b515b;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5c636e;
+}
+
+.circle-1 {
+  -webkit-animation: circle-1-keyframes 13s ease-in-out infinite alternate;
+  animation: circle-1-keyframes 13s ease-in-out infinite alternate;
+}
+
+.circle-1,
+.circle-2 {
+  will-change: transform;
+}
+
+.circle-2 {
+  -webkit-animation: circle-2-keyframes 8s ease-in-out infinite alternate;
+  animation: circle-2-keyframes 8s ease-in-out infinite alternate;
+}
+
+.circle-3 {
+  will-change: transform;
+  -webkit-animation: circle-3-keyframes 18s ease-in-out infinite alternate;
+  animation: circle-3-keyframes 18s ease-in-out infinite alternate;
+}
+@-webkit-keyframes circle-1-keyframes {
+  to {
+    transform: translateX(200px) translateY(50px);
+  }
+}
+
+@keyframes circle-1-keyframes {
+  to {
+    transform: translateX(200px) translateY(50px);
+  }
+}
+
+@-webkit-keyframes circle-2-keyframes {
+  to {
+    transform: translateX(300px) translateY(-25px);
+  }
+}
+
+@keyframes circle-2-keyframes {
+  to {
+    transform: translateX(300px) translateY(-25px);
+  }
+}
+
+@-webkit-keyframes circle-3-keyframes {
+  to {
+    transform: translateX(250px) translateY(25px);
+  }
+}
+
+@keyframes circle-3-keyframes {
+  to {
+    transform: translateX(250px) translateY(25px);
+  }
 }

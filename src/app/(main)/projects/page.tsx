@@ -1,3 +1,4 @@
+import GradentBackbgound from "@/components/ui/gradent-bg";
 import H2 from "@/components/ui/h2";
 import UnderLineGradent from "@/components/ui/underline-gradent";
 import { allProjects } from "contentlayer/generated";
@@ -7,7 +8,8 @@ import React from "react";
 
 const ProjectsPage = () => {
   return (
-    <div className="container">
+    <div className="container relative">
+      <GradentBackbgound />
       <H2>Projects</H2>
       <ul className="flex flex-col space-y-3">
         {allProjects.map((project) => (
@@ -18,7 +20,7 @@ const ProjectsPage = () => {
           >
             <div className="mx-auto flex h-28 w-full bg-contain md:mx-0 md:w-32">
               <Image
-                src={project.projectLogo}
+                src={project.icon}
                 height={500}
                 width={500}
                 alt={project.name}

@@ -1,11 +1,34 @@
 // contentlayer.config.ts
-import { defineDocumentType, makeSource } from "contentlayer/source-files";
+
+import {
+  defineDocumentType,
+  makeSource,
+  defineNestedType,
+} from "contentlayer/source-files";
+
+export const Image = defineNestedType(() => ({
+  name: "Image",
+  description: "Product image",
+  fields: {
+    src: {
+      type: "string",
+      required: true,
+    },
+    height: {
+      type: "number",
+    },
+    width: {
+      type: "number",
+    },
+  },
+}));
 
 export const Project = defineDocumentType(() => ({
   name: "Project",
-  filePathPattern: `projects/**/*.md`,
+  filePathPattern: `projects/**/*.mdx`,
+  contentType: "mdx",
   fields: {
-    projectLogo: {
+    icon: {
       type: "string",
       description: "Logo of project",
       required: true,
@@ -21,14 +44,15 @@ export const Project = defineDocumentType(() => ({
       required: true,
     },
     date: {
-      type: "string",
+      type: "date",
       description: "Publish date",
       required: true,
     },
-    productImage: {
-      type: "string",
+    image: {
+      type: "nested",
       description: "Image of project",
       required: true,
+      of: Image,
     },
     liveUrl: {
       type: "string",
@@ -49,7 +73,23 @@ export const Project = defineDocumentType(() => ({
   },
 }));
 
+export const Blogs = defineDocumentType(() => ({
+  name: "Blogs",
+  filePathPattern: "blogs/**/*.mdx",
+  contentType: "mdx",
+  fields: {
+    title: {
+      type: "string",
+      required: true,
+    },
+  },
+}));
+
 export default makeSource({
   contentDirPath: "src/content-data",
   documentTypes: [Project],
+  // mdx: {
+  //   remarkPlugins: [remarkGfm],
+  //   rehypePlugins: [highlight],
+  // },
 });
