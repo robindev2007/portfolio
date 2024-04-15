@@ -2,9 +2,16 @@ import GradentBackbgound from "@/components/ui/gradent-bg";
 import H2 from "@/components/ui/h2";
 import UnderLineGradent from "@/components/ui/underline-gradent";
 import { allProjects } from "contentlayer/generated";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "Projects by Robin Mia | Fullstack Developer",
+  description:
+    "Fullstack web developement projects by Robin Mia | Live in Bangladesh | Open for work",
+};
 
 const ProjectsPage = () => {
   return (

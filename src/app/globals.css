@@ -57,10 +57,8 @@
   width: 7px;
   height: 3px;
 }
-
 ::-webkit-scrollbar-track {
-  border-radius: 10px;
-  background-color: transparent;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {

@@ -17,7 +17,7 @@ const Projects = () => {
             href={project.slug}
             // href={project.href}
             key={project._id}
-            className="group relative flex w-full flex-col items-start gap-3 rounded-xl border bg-card/20 p-3 transition-all duration-300 hover:scale-[1.01] hover:border-primary md:flex-row md:items-center"
+            className="group relative flex w-full flex-col items-start gap-3 rounded-xl border bg-card/20 p-3 transition-all duration-300 hover:border-primary md:flex-row md:items-center md:hover:scale-[1.001]"
           >
             <div className="w-16 overflow-hidden rounded">
               <Image
@@ -34,7 +34,7 @@ const Projects = () => {
               <p className="text-md text-gray-300">{project.description}</p>
             </div>
 
-            <div className="group/link group- absolute right-0 top-0 hidden  -translate-y-1/2 translate-x-1/2 rounded-full border border-white bg-foreground fill-black p-2 hover:bg-background group-hover:flex">
+            <div className="group/link absolute right-0 top-0 hidden -translate-y-1/2 translate-x-1/2 rounded-full border border-white bg-foreground fill-black p-2 hover:bg-background group-hover:flex">
               <RiShareCircleLine className="fill-black group-hover/link:fill-white" />
             </div>
           </Link>

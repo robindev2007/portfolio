@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Sen } from "next/font/google";
 import localFont from "next/font/local";
+import NextTopLoader from "nextjs-toploader";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -29,7 +30,10 @@ export default function RootLayout({
       <body
         className={`${sen.className} ${inter.variable} ${ahrefFont.variable}`}
       >
-        <main className="font-s min-h-screen">{children}</main>
+        <NextTopLoader showSpinner={false} />
+        <main className="font-s min-h-screen overflow-x-hidden">
+          {children}
+        </main>
       </body>
     </html>
   );

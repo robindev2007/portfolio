@@ -1,12 +1,17 @@
 "use client";
-import { capitalizeFirstLetter, cn } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { buttonVariants } from "../ui/button";
 import { usePathname } from "next/navigation";
-import GradentText from "../ui/gradent-text";
+import MobileNav from "./MobileNav";
+import NavigationControler from "./NavigationControler";
+import { Slant as Hamburger } from "hamburger-react";
+import { AnimatePresence } from "framer-motion";
 
 const Header = () => {
+  const [navActive, setNavActive] = useState(false);
+
   const navList = [
     {
       title: "Home",
@@ -29,48 +34,43 @@ const Header = () => {
   const pathname = usePathname();
 
   return (
-    <div className="flex items-center justify-between py-3">
-      <div className="flex items-center gap-2">
-        <Link href={"/"}>~</Link>
-        {pathname !== "/" && pathname.split("/")[1] && (
-          <>
-            <div className="flex text-muted-foreground">\</div>
-            <Link href={"/projects"}>
-              <GradentText
-                className="font-medium"
-                textContent={capitalizeFirstLetter(pathname.split("/")[1])}
-              />
+    <div className="relative z-50">
+      <div className="relative flex items-center justify-between py-3">
+        <NavigationControler pathname={pathname} />
+
+        <nav className="hidden gap-3 md:flex">
+          {navList.map((link) => (
+            <Link
+              className={cn(
+                buttonVariants({
+                  variant: pathname === link.href ? "secondary" : "ghost",
+                }),
+                "h-8 px-3",
+              )}
+              key={link.title}
+              href={link.href}
+            >
+              {link.title}
             </Link>
-          </>
-        )}
-        {pathname !== "/" && pathname.split("/")[2] && (
-          <>
-            <div className="flex text-muted-foreground">\</div>
-            <Link href={pathname}>
-              <GradentText
-                className="font-medium"
-                textContent={capitalizeFirstLetter(pathname.split("/")[2])}
-              />
-            </Link>
-          </>
-        )}
+          ))}
+        </nav>
+
+        <div className="relative z-30 flex md:hidden">
+          <Hamburger toggled={navActive} toggle={setNavActive} size={20} />
+        </div>
       </div>
-      <nav className="flex gap-3">
-        {navList.map((link) => (
-          <Link
-            className={cn(
-              buttonVariants({
-                variant: pathname === link.href ? "secondary" : "ghost",
-              }),
-              "h-8 px-3",
-            )}
-            key={link.title}
-            href={link.href}
-          >
-            {link.title}
-          </Link>
-        ))}
-      </nav>
+      <div className="mt-10">
+        <AnimatePresence>
+          {navActive && (
+            <MobileNav
+              navList={navList}
+              pathname={pathname}
+              setNavActive={setNavActive}
+              navActive={navActive}
+            />
+          )}
+        </AnimatePresence>
+      </div>
     </div>
   );
 };
