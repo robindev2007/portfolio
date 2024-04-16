@@ -18,7 +18,11 @@ const ahrefFont = localFont({
 export const metadata: Metadata = {
   title: "Robin Mia | Fullstack Developer",
   description: "Fullstack web developer | Live in Bangladesh | Open for work",
+  verification: {
+    google: "F34cI-FmqcyPEdSVNhug_a4m_pbKSqI6rQzQGQ-ulEs",
+  },
 };
+// <meta name="google-site-verification" content="F34cI-FmqcyPEdSVNhug_a4m_pbKSqI6rQzQGQ-ulEs" />
 
 export default function RootLayout({
   children,
