@@ -3,14 +3,19 @@ import GradentBackbgound from "@/components/ui/gradent-bg";
 import React, { ReactNode } from "react";
 import MouseFollowDiv from "@/components/ui/mouse-follow";
 import Contact from "./components/Contact/Contact";
+import TitleBarHandler from "@/components/common/titlebar-handler";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Robin Mia | Fullstack developer",
+};
 
 function MainLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="relative min-h-screen w-screen overflow-x-hidden">
-      <div className="container">
-        <Header />
-        {/* <MouseFollowDiv /> */}
-        {children}
+    <div className="container relative flex min-h-screen flex-col">
+      <Header />
+      {children}
+      <div className="mt-auto">
         <Contact />
       </div>
     </div>

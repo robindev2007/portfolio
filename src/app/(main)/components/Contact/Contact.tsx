@@ -3,6 +3,7 @@ import UnderLineGradent from "@/components/ui/underline-gradent";
 import React from "react";
 import SocialIcons from "@/components/social-icons";
 import CustomLink from "@/components/ui/CustomLink";
+import { UserDetails } from "@/constante/constants";
 
 const Contact = () => {
   return (
@@ -10,9 +11,9 @@ const Contact = () => {
       <H2>Contact</H2>
       <p className="">
         You can send me over an e-mail on{" "}
-        <CustomLink href={""}>
+        <CustomLink href={`mailto: ${UserDetails.gmail.gmail}`}>
           <UnderLineGradent showIcon={false}>
-            robindev2007@gmail.com
+            {UserDetails.gmail.gmail}
           </UnderLineGradent>
         </CustomLink>
       </p>
@@ -20,13 +21,15 @@ const Contact = () => {
       <div className="flex flex-col items-center pb-10 pt-10">
         <p>
           Made by{" "}
-          <CustomLink href={""}>
-            <UnderLineGradent showIcon>Robin Mia</UnderLineGradent>
+          <CustomLink target="_blank" href={UserDetails.developer.url}>
+            <UnderLineGradent showIcon>
+              {UserDetails.developer.name}
+            </UnderLineGradent>
           </CustomLink>
         </p>
         <p>
           This portfolio is open source and the source code can be found on{" "}
-          <CustomLink href={""}>
+          <CustomLink target="_blank" href={UserDetails.github.link}>
             <UnderLineGradent showIcon>GitHub</UnderLineGradent>
           </CustomLink>
         </p>

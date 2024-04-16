@@ -23,7 +23,7 @@ const ProjectsPage = () => {
           <div
             // href={project.href}
             key={project._id}
-            className="group relative flex w-full flex-col items-center gap-3 rounded-xl border bg-card/20 p-3 transition-all duration-300 md:flex-row"
+            className="group relative flex w-full flex-col items-center gap-3 rounded-xl border bg-card/60 p-3 transition-all duration-300 md:flex-row"
           >
             <div className="mx-auto flex h-28 w-full bg-contain md:mx-0 md:w-32">
               <Image

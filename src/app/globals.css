@@ -39,6 +39,9 @@
   span {
     @apply font-medium text-muted-foreground;
   }
+  .container {
+    @apply flex flex-col;
+  }
 }
 
 /* image {

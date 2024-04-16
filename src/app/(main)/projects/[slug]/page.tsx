@@ -20,8 +20,8 @@ const SingleProjectPage = ({ params }: { params: { slug: string } }) => {
   return (
     <div className="pb-10">
       <GradentBackbgound />
-      <div className="my-8 flex items-center space-x-8 rounded border bg-card/10 p-2">
-        <div className="relative w-32">
+      <div className="my-8 flex items-center space-x-5 rounded border bg-background/30 p-2">
+        <div className="relative w-16">
           <Image src={post.icon} height={700} width={700} alt={post.name} />
         </div>
 
@@ -72,8 +72,7 @@ const SingleProjectPage = ({ params }: { params: { slug: string } }) => {
           height={post.image.height}
           width={post.image.width}
           alt={post.name}
-          
-          // className="h-auto w-auto"
+          className="overflow-hidden rounded-md border"
         />
       </div>
 

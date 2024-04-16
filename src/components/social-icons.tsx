@@ -5,30 +5,36 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { FaTwitter, FaGithub, FaFacebook, FaYoutube } from "react-icons/fa";
+import {
+  FaTwitter,
+  FaGithub,
+  FaFacebook,
+  FaYoutube,
+  FaLinkedin,
+} from "react-icons/fa";
 import Link from "next/link";
 
 const SocialIcons = () => {
   const heroIconsLink = [
     {
-      icon: <FaTwitter className="h-5 w-5" />,
-      title: "Twiter",
-      href: "",
+      icon: <FaLinkedin className="h-5 w-5" />,
+      title: "Linkedin",
+      href: "https://www.linkedin.com/in/robindev2007/",
     },
     {
       icon: <FaGithub className="h-5 w-5" />,
       title: "Github",
-      href: "",
+      href: "https://github.com/robindev2007",
     },
     {
       icon: <FaFacebook className="h-5 w-5" />,
       title: "Facebook",
-      href: "",
+      href: "https://www.facebook.com/robindev2007",
     },
     {
       icon: <FaYoutube className="h-5 w-5" />,
       title: "Youtube",
-      href: "",
+      href: "https://www.youtube.com/channel/UC1StKX3T0F-VE4O9AfLVWjA",
     },
   ];
 
@@ -38,7 +44,9 @@ const SocialIcons = () => {
         <TooltipProvider delayDuration={50} key={link.title}>
           <Tooltip>
             <TooltipTrigger className={"rounded-xl border bg-card p-2"}>
-              <Link href={link.href}>{link.icon}</Link>
+              <Link target="_blank" href={link.href}>
+                {link.icon}
+              </Link>
             </TooltipTrigger>
             <TooltipContent>
               <p>{link.title}</p>

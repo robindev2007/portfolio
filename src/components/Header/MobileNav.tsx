@@ -42,7 +42,7 @@ const MobileNav = ({
       initial="initial"
       animate="animate"
       exit="exit"
-      className="absolute left-0 top-full z-50 flex h-screen w-full bg-background p-4 md:hidden"
+      className="absolute left-0 top-full z-50 flex h-screen w-screen bg-background md:hidden"
     >
       <motion.nav
         animate={{

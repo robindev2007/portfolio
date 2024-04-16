@@ -12,7 +12,7 @@ const Projects = () => {
     <div className="space-y-10 py-20">
       <H2>Projects</H2>
       <ul className="flex flex-col space-y-3">
-        {allProjects.map((project) => (
+        {allProjects.slice(0, 3).map((project) => (
           <Link
             href={project.slug}
             // href={project.href}

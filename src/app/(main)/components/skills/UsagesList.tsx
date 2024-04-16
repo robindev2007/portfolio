@@ -21,6 +21,7 @@ const UsagesList = ({ list, name }: { list: any; name: string }) => {
             </div>
             <span className="flex gap-2 font-medium">
               <CustomLink
+                target="_blank"
                 className="underline hover:no-underline"
                 href={item.link}
               >

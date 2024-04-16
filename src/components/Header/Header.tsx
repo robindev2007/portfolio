@@ -59,7 +59,7 @@ const Header = () => {
           <Hamburger toggled={navActive} toggle={setNavActive} size={20} />
         </div>
       </div>
-      <div className="mt-10">
+      <div className="mt-5">
         <AnimatePresence>
           {navActive && (
             <MobileNav
