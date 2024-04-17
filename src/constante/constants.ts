@@ -20,3 +20,5 @@ export const UserDetails = {
     link: "https://github.com/robindev2007/portfolio",
   },
 };
+
+export const BASE_URL = "http://robinport.vercel.app";

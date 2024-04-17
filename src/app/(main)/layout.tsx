@@ -5,8 +5,14 @@ import MouseFollowDiv from "@/components/ui/mouse-follow";
 import Contact from "./components/Contact/Contact";
 import TitleBarHandler from "@/components/common/titlebar-handler";
 import { Metadata } from "next";
+import { BASE_URL } from "@/constante/constants";
 
 export const metadata: Metadata = {
+  keywords: [
+    "Robin mia protfolio website",
+    "Robin dev protfolio",
+    "Developer Robin",
+  ],
   title: "Robin Mia | Fullstack developer",
 };
 

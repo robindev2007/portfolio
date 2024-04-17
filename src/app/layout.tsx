@@ -3,6 +3,7 @@ import { Inter, Sen } from "next/font/google";
 import localFont from "next/font/local";
 import NextTopLoader from "nextjs-toploader";
 import "./globals.css";
+import { BASE_URL } from "@/constante/constants";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const sen = Sen({
@@ -16,13 +17,14 @@ const ahrefFont = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(BASE_URL),
+
   title: "Robin Mia | Fullstack Developer",
   description: "Fullstack web developer | Live in Bangladesh | Open for work",
   verification: {
     google: "F34cI-FmqcyPEdSVNhug_a4m_pbKSqI6rQzQGQ-ulEs",
   },
 };
-// <meta name="google-site-verification" content="F34cI-FmqcyPEdSVNhug_a4m_pbKSqI6rQzQGQ-ulEs" />
 
 export default function RootLayout({
   children,
