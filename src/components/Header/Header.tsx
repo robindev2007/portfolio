@@ -18,17 +18,17 @@ const Header = () => {
       href: "/",
     },
     {
-      title: "Blog",
-      href: "/blog",
+      title: "Blogs",
+      href: "/blogs",
     },
     {
       title: "Projects",
       href: "/projects",
     },
-    {
-      title: "Achievments",
-      href: "/achievements",
-    },
+    // {
+    //   title: "Achievments",
+    //   href: "/achievements",
+    // },
   ];
 
   const pathname = usePathname();

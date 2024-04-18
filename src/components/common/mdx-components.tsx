@@ -5,9 +5,7 @@ import CustomLink from "../ui/CustomLink";
 const mdxComponents: MDXComponents = {
   // Override the default <a> element to use the next/link component.
   a: ({ href, children }) => (
-    <CustomLink showIcon href={href as string}>
-      {children}
-    </CustomLink>
+    <CustomLink href={href as string}>{children}</CustomLink>
   ),
   // Add a custom component.
   MyComponent: () => <div>Hello World!</div>,

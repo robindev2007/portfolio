@@ -1,4 +1,10 @@
-// contentlayer.config.ts
+import highlight from "rehype-highlight";
+import remarkGfm from "remark-gfm";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeCodeTitles from "rehype-code-titles";
+import rehypePrism from "rehype-prism-plus";
+import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 
 import {
   defineDocumentType,
@@ -73,23 +79,50 @@ export const Project = defineDocumentType(() => ({
   },
 }));
 
-export const Blogs = defineDocumentType(() => ({
-  name: "Blogs",
-  filePathPattern: "blogs/**/*.mdx",
+export const Blog = defineDocumentType(() => ({
+  name: "Blog",
+  filePathPattern: `blogs/**/*.mdx`,
   contentType: "mdx",
   fields: {
     title: {
       type: "string",
+      description: "The name of project",
       required: true,
+    },
+    description: {
+      type: "string",
+      description: "The description of project",
+      required: true,
+    },
+    date: {
+      type: "date",
+      description: "Publish date",
+      required: true,
+    },
+    image: {
+      type: "nested",
+      description: "Image of project",
+      required: true,
+      of: Image,
+    },
+    readTime: {
+      type: "number",
+      required: true,
+    },
+  },
+  computedFields: {
+    slug: {
+      type: "string",
+      resolve: (blog) => `/${blog._raw.flattenedPath}`,
     },
   },
 }));
 
 export default makeSource({
   contentDirPath: "src/content-data",
-  documentTypes: [Project],
-  // mdx: {
-  //   remarkPlugins: [remarkGfm],
-  //   rehypePlugins: [highlight],
-  // },
+  documentTypes: [Project, Blog],
+  mdx: {
+    // remarkPlugins: [remarkGfm],
+    rehypePlugins: [rehypePrism],
+  },
 });

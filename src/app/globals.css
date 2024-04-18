@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("../app/styles/prism-atom-dark.css");
+
 @layer base {
   :root {
     color-scheme: dark;
@@ -127,4 +129,7 @@
   to {
     transform: translateX(250px) translateY(25px);
   }
+}
+
+:not(pre) > code {
 }

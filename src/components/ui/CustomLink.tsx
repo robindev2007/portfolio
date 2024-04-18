@@ -22,7 +22,8 @@ const CustomLink = ({
     <Link
       href={href}
       className={cn(
-        "underline-gradent group relative mr-5 inline-flex w-fit text-blue-400 no-underline transition-all duration-200 ease-in-out after:w-0 hover:text-blue-300 hover:after:w-full",
+        "underline-gradent group relative inline-flex w-fit text-blue-400 no-underline transition-all duration-200 ease-in-out after:w-0 hover:text-blue-300 hover:after:w-full",
+        showIcon && "mr-5",
         className,
       )}
       {...props}
