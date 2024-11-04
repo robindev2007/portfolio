@@ -3,9 +3,9 @@ import React from "react";
 
 function GradentBackbgound() {
   return (
-    <div className="opaci pointer-events-none absolute left-0 right-0 top-0 -z-10">
-      <div className="absolute left-10 top-32 overflow-visible">
-        <div className="circle-2 h-[400px] w-[700px] scale-125 rounded-full ">
+    <div className="pointer-events-none absolute left-1/2 top-0 -z-10 w-screen -translate-x-1/2">
+      <div className="absolute left-10 top-32">
+        <div className="circle-2 h-[400px] w-[700px] scale-125 rounded-full">
           <Image
             priority
             className="h-full w-full scale-150 bg-cover mix-blend-multiply"
@@ -16,11 +16,11 @@ function GradentBackbgound() {
           />
         </div>
       </div>
-      <div className="absolute left-12 top-48 overflow-visible">
-        <div className="circle-3 h-[600px] w-[500px] scale-125 rounded-full ">
+      <div className="absolute left-12 top-48">
+        <div className="circle-3 h-[600px] w-[500px] scale-125 rounded-full">
           <Image
             priority
-            className="h-full w-full scale-150  bg-cover mix-blend-multiply"
+            className="h-full w-full scale-150 bg-cover mix-blend-multiply"
             src={"/images/Ellipse 3.png"}
             height={300}
             width={300}
@@ -28,8 +28,8 @@ function GradentBackbgound() {
           />
         </div>
       </div>
-      <div className="absolute left-8 top-16 overflow-visible">
-        <div className="circle-1 h-[400px] w-[700px] scale-125 rounded-full ">
+      <div className="absolute left-8 top-16">
+        <div className="circle-1 h-[400px] w-[700px] scale-125 rounded-full">
           <Image
             priority
             className="h-full w-full scale-150 bg-cover mix-blend-multiply"

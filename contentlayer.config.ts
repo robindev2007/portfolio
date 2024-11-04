@@ -1,10 +1,4 @@
-import highlight from "rehype-highlight";
-import remarkGfm from "remark-gfm";
-import rehypeSlug from "rehype-slug";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import rehypeCodeTitles from "rehype-code-titles";
 import rehypePrism from "rehype-prism-plus";
-import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 
 import {
   defineDocumentType,
@@ -25,6 +19,21 @@ export const Image = defineNestedType(() => ({
     },
     width: {
       type: "number",
+    },
+  },
+}));
+
+export const LiveUrl = defineNestedType(() => ({
+  name: "LiveUrl",
+  description: "Live url",
+  fields: {
+    url: {
+      type: "string",
+      required: true,
+    },
+    title: {
+      type: "string",
+      required: true,
     },
   },
 }));
@@ -61,14 +70,21 @@ export const Project = defineDocumentType(() => ({
       of: Image,
     },
     liveUrl: {
-      type: "string",
+      type: "nested",
       description: "Live url of project website",
       required: false,
+      of: LiveUrl,
     },
+    // liveUrl: {
+    //   type: "string",
+    //   description: "Live url of project website",
+    //   required: false,
+    // },
     githubUrl: {
-      type: "string",
+      type: "nested",
       description: "Live url of project website",
       required: false,
+      of: LiveUrl,
     },
   },
   computedFields: {
@@ -80,46 +96,26 @@ export const Project = defineDocumentType(() => ({
 }));
 
 export const Blog = defineDocumentType(() => ({
-  name: "Blog",
+  name: "Blogs",
   filePathPattern: `blogs/**/*.mdx`,
   contentType: "mdx",
   fields: {
-    title: {
-      type: "string",
-      description: "The name of project",
-      required: true,
-    },
-    description: {
-      type: "string",
-      description: "The description of project",
-      required: true,
-    },
-    date: {
-      type: "date",
-      description: "Publish date",
-      required: true,
-    },
-    image: {
-      type: "nested",
-      description: "Image of project",
-      required: true,
-      of: Image,
-    },
-    readTime: {
-      type: "number",
-      required: true,
-    },
+    title: { type: "string", required: true },
+    brief: { type: "string", required: false },
+    heroImage: { type: "string", required: true },
+    createdAt: { type: "date", required: true },
+    updatedAt: { type: "date", required: false },
   },
   computedFields: {
     slug: {
       type: "string",
-      resolve: (blog) => `/${blog._raw.flattenedPath}`,
+      resolve: (post) => `/${post._raw.flattenedPath}`,
     },
   },
 }));
 
 export default makeSource({
-  contentDirPath: "src/content-data",
+  contentDirPath: "src/content-layer",
   documentTypes: [Project, Blog],
   mdx: {
     // remarkPlugins: [remarkGfm],

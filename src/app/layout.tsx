@@ -1,30 +1,13 @@
-import type { Metadata } from "next";
-import { Inter, Sen } from "next/font/google";
-import localFont from "next/font/local";
-import NextTopLoader from "nextjs-toploader";
+import { Sen } from "next/font/google";
 import "./globals.css";
-import { BASE_URL } from "@/constante/constants";
+import { ThemeProvider } from "@/components/theme-provider";
+import ToasterProvider from "@/components/toaster-provider";
+import PerfectScrollbarContainer from "@/components/PerfectScrollbarContainer";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const sen = Sen({
-  subsets: ["latin"],
+const inter = Sen({
   weight: ["400", "500", "600", "700", "800"],
+  subsets: ["latin"],
 });
-
-const ahrefFont = localFont({
-  src: "../../public/fonts/ahref-bold.woff2",
-  variable: "--font-ahref",
-});
-
-export const metadata: Metadata = {
-  metadataBase: new URL(BASE_URL),
-
-  title: "Robin Mia | Fullstack Developer",
-  description: "Fullstack web developer | Live in Bangladesh | Open for work",
-  verification: {
-    google: "F34cI-FmqcyPEdSVNhug_a4m_pbKSqI6rQzQGQ-ulEs",
-  },
-};
 
 export default function RootLayout({
   children,
@@ -32,13 +15,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en dark">
-      <body
-        className={`${sen.className} ${inter.variable} ${ahrefFont.variable}`}
-      >
-        <NextTopLoader showSpinner={false} />
-        <main className="font-s min-h-screen overflow-x-hidden">
-          {children}
+    <html lang="en">
+      <body className={`${inter.className} bg-background antialiased`}>
+        <main className="flex h-full min-h-screen flex-col">
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            disableTransitionOnChange
+          >
+            <ToasterProvider richColors position="top-right" />
+            <PerfectScrollbarContainer>{children}</PerfectScrollbarContainer>
+          </ThemeProvider>
         </main>
       </body>
     </html>
