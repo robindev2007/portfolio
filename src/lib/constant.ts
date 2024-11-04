@@ -3,6 +3,7 @@ export const DEVELOPER_DATA = {
   title: ["React Developer", "Next.js Developer", "Node.js Developer"],
   description:
     "I am a passionate full-stack web developer from Bangladesh, eager to take on new challenges and opportunities. I specialize in React.js, Next.js, and Node.js, and I thrive on creating responsive, user-friendly web applications. Feel free to reach out anytime—I’m always open to collaboration and new ideas!",
+  heroImage: "/images/robin-developer.jpg",
 };
 
 export const PROJECTS = [

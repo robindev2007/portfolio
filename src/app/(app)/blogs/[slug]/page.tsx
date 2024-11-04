@@ -7,6 +7,37 @@ import React from "react";
 import Container from "@/components/shared/Container";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { FaGithub } from "react-icons/fa";
+import { Metadata, ResolvingMetadata } from "next";
+
+type Props = {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+};
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  const slug = (await params).slug;
+
+  const project = allBlogs.find(
+    (p) => p._raw.flattenedPath === "blogs/" + slug,
+  ) as Blogs;
+
+  // optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images || [];
+
+  return {
+    title: `${project.title}`,
+    description: `${project.brief}`,
+    openGraph: {
+      images: [project.heroImage, ...previousImages],
+    },
+    twitter: {
+      images: [project.heroImage],
+    },
+  };
+}
 
 const SingleProjectPage = ({ params }: { params: { slug: string } }) => {
   const blog = allBlogs.find(

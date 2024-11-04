@@ -3,10 +3,16 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { H2, H3 } from "@/components/ui/typography";
 import { PROJECTS } from "@/lib/constant";
 import { allProjects, Project } from "contentlayer/generated";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
+
+export const metadata: Metadata = {
+  title: "Projects | Robin Mia Full Stack web developer",
+  description: "Projects created by Robin Mia",
+};
 
 function ProjectPage() {
   return (

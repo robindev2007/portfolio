@@ -42,8 +42,8 @@ function HeroSection() {
 
       <div className="h-32 w-32 shrink-0 overflow-hidden rounded-full">
         <Image
-          src={"/images/robin-developer.jpg"}
-          blurDataURL="/images/robin-developer.jpg"
+          src={DEVELOPER_DATA.heroImage}
+          blurDataURL={DEVELOPER_DATA.heroImage}
           height={1000}
           width={1000}
           alt="Robin Web devloper Image"
