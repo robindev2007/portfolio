@@ -13,9 +13,11 @@ function Projects() {
       <Container className="gap-0">
         <H2>Projects</H2>
         <div className="grid gap-5">
-          {allProjects.map((project) => (
-            <ProjectCard key={project._id} project={project} />
-          ))}
+          {allProjects
+            .sort((a, b) => (b.rate || 1) - (a.rate || 1))
+            .map((project) => (
+              <ProjectCard key={project._id} project={project} />
+            ))}
         </div>
         <Link
           className="mt-3 flex items-center gap-3 text-muted-foreground transition-all hover:gap-4"

@@ -1,7 +1,6 @@
 import Container from "@/components/shared/Container";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { H2, H3 } from "@/components/ui/typography";
-import { PROJECTS } from "@/lib/constant";
 import { allProjects, Project } from "contentlayer/generated";
 import { Metadata } from "next";
 import Image from "next/image";
@@ -20,9 +19,11 @@ function ProjectPage() {
       <Container>
         <H2>Projects</H2>
         <div className="flex flex-col gap-3">
-          {allProjects.map((project) => (
-            <ProjectCard key={project._id} project={project} />
-          ))}
+          {allProjects
+            .sort((a, b) => (b.rate || 1) - (a.rate || 1))
+            .map((project) => (
+              <ProjectCard key={project._id} project={project} />
+            ))}
         </div>
         <Link
           className="mt-4 flex items-center gap-3 text-lg text-muted-foreground transition-all hover:gap-4"

@@ -42,7 +42,13 @@ export const Project = defineDocumentType(() => ({
   name: "Project",
   filePathPattern: `projects/**/*.mdx`,
   contentType: "mdx",
+
   fields: {
+    rate: {
+      type: "number",
+      required: false,
+      description: "Fot ordering project",
+    },
     icon: {
       type: "string",
       description: "Logo of project",
@@ -119,6 +125,6 @@ export default makeSource({
   documentTypes: [Project, Blog],
   mdx: {
     // remarkPlugins: [remarkGfm],
-    rehypePlugins: [rehypePrism],
+    // rehypePlugins: [rehypePrism],
   },
 });
